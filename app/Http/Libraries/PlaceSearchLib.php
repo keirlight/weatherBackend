@@ -21,7 +21,7 @@ final class PlaceSearchLib extends Utils
     public function initRequest($params)
     {
         $headers = $this->initHeaders();
-        $this->set_request_param($params, $filter);
+        $this->setRequestParam($params, $filter);
         $url = self::ENDPOINTS[self::DEFAULT_ENDPOINT] . http_build_query($filter);
 
         $res = $this->callApi($url, self::METHOD_GET, $headers);
@@ -43,7 +43,7 @@ final class PlaceSearchLib extends Utils
         return $headers;
     }
 
-    private function set_request_param($params, &$filter)
+    private function setRequestParam($params, &$filter)
     {
         $keys = ['city', 'query', 'near'];
 

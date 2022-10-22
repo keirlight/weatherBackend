@@ -23,15 +23,11 @@ final class WeatherLib extends Utils
     public function initRequest($params)
     {
         $filter = $this->initDefParam();
-        $this->set_request_param($params, $filter);
+        $this->setRequestParam($params, $filter);
         $url = self::ENDPOINTS[$params['endpoint']] . http_build_query($filter);
 
         // replicate api response to be flexible
         $res = $this->callApi($url, self::METHOD_GET);
-        // return [
-        //     'cod' => $res['status'],
-        //     'list' => $res['data'] ?? [],
-        // ];
         return $res['data'] ?? [];
     }
 
@@ -44,7 +40,7 @@ final class WeatherLib extends Utils
         ];
     }
 
-    private function set_request_param($params, &$filter)
+    private function setRequestParam($params, &$filter)
     {
         if (!empty($params['city'])) {
             $filter['q'] = $params['city'];

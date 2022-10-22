@@ -25,7 +25,7 @@ class Utils
                     $response = Http::get($url);
                 }
 
-                list($status, $data) = $this->set_response($response);
+                list($status, $data) = $this->setAPIResponse($response);
                 break;
             default:
                 $status = false;
@@ -39,7 +39,7 @@ class Utils
         ];
     }
 
-    private function set_response($response)
+    private function setAPIResponse($response)
     {
         if (!empty($response->status()))
         {
